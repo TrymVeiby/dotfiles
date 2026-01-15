@@ -12,6 +12,8 @@ Personal dotfiles for zsh and starship configuration.
 ### Shell Setup
 - Oh My Zsh with `git` and `zsh-autosuggestions` plugins
 - Starship prompt for a fast and customizable command prompt
+  <img width="660" height="130" alt="image" src="https://github.com/user-attachments/assets/be14add1-262f-4646-8f24-3cda2843f5c3" />
+
 
 ### Tool Aliases & Functions
 - **Git**: `gcom` - checkout main and pull
