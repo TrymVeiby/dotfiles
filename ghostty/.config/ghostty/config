@@ -26,10 +26,12 @@ font-family = FantasqueSansM Nerd Font Mono
 font-size = 14
 font-style = bold
 
+# Theme
+theme = tokyonight
+
 # Colors
-background = #000000
-foreground = #dddddd
-cursor-color = #dddddd
+cursor-color = #ff8ffd
+
 
 # Window appearance
 background-opacity = 0.9
