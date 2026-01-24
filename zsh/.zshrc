@@ -10,7 +10,9 @@ source $ZSH/oh-my-zsh.sh
 #Star Ship
 eval "$(starship init zsh)"
 
+#Aliases
 alias gcom='git checkout main && git pull'
+alias oc="opencode"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/trymveiby/.rd/bin:$PATH"
