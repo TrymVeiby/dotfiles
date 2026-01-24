@@ -27,7 +27,7 @@ font-size = 14
 font-style = bold
 
 # Theme
-theme = tokyonight
+theme = TokyoNight
 
 # Colors
 cursor-color = #ff8ffd
