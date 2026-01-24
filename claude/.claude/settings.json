@@ -1,0 +1,12 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); dir=$(echo \"$input\" | jq -r '.workspace.current_dir'); dir_display=\"${dir/#$HOME/\\~}\"; time=$(date +%R); model=$(echo \"$input\" | jq -r '.model.id'); used=$(echo \"$input\" | jq -r '.context_window.used_percentage // empty'); usage_display=\"\"; if [ -n \"$used\" ]; then used_rounded=$(printf \"%.1f\" \"$used\"); usage_display=\" $(printf '\\033[38;2;255;255;255m\\033[48;2;51;101;138m') ${used_rounded}% used $(printf '\\033[0m')\"; fi; git_info=\"\"; if git -C \"$dir\" rev-parse --git-dir > /dev/null 2>&1; then branch=$(git -C \"$dir\" --no-optional-locks branch --show-current 2>/dev/null); if [ -n \"$branch\" ]; then status=\"\"; ! git -C \"$dir\" --no-optional-locks diff --quiet 2>/dev/null && status=\"${status}*\"; ! git -C \"$dir\" --no-optional-locks diff --cached --quiet 2>/dev/null && status=\"${status}+\"; [ -n \"$(git -C \"$dir\" --no-optional-locks ls-files --others --exclude-standard 2>/dev/null)\" ] && status=\"${status}?\"; [ -n \"$status\" ] && status=\" $status\"; git_info=\" $(printf '\\033[38;2;0;0;0m\\033[48;2;252;161;125m') $branch$status $(printf '\\033[0m')\"; fi; fi; dir_display_formatted=\" $(printf '\\033[38;2;255;255;255m\\033[48;2;79;134;153m') $dir_display $(printf '\\033[0m')\"; model_display=\" $(printf '\\033[38;2;255;255;255m\\033[48;2;95;95;135m') $model $(printf '\\033[0m')\"; time_display=\" $(printf '\\033[38;2;255;255;255m\\033[48;2;51;101;138m') ♥ $time $(printf '\\033[0m')\"; echo \"${git_info}${dir_display_formatted}${model_display}${usage_display}${time_display}\""
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "github@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true
+}
