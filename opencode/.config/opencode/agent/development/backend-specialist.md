@@ -7,7 +7,7 @@ type: standard
 version: 1.0.0
 author: community
 mode: primary
-model: openai/gpt-5.2-code
+model: openai/gpt-5.2-codex
 temperature: 0.1
 
 # Tags

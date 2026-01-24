@@ -8,7 +8,7 @@ type: core
 version: 1.0.0
 author: opencode
 mode: primary
-model: openai/gpt-5.2-code
+model: openai/gpt-5.2-codex
 temperature: 0.1
 
 # Dependencies

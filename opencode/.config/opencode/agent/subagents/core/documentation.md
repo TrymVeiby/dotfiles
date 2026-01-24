@@ -7,7 +7,7 @@ type: subagent
 version: 1.0.0
 author: opencode
 mode: subagent
-model: openai/gpt-5.2-code
+model: openai/gpt-5.2-codex
 temperature: 0.2
 tools:
   read: true
