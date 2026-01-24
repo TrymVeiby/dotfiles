@@ -1,11 +1,14 @@
 # dotfiles
 
-Personal dotfiles for zsh and starship configuration.
+Personal dotfiles for zsh, starship, tmux, ghostty and Claude Code.
 
 ## Contents
 
 - **`.zshrc`** - Zsh shell configuration with Oh My Zsh, plugins, and aliases
 - **`.config/starship.toml`** - Starship prompt configuration
+- **`.config/ghostty/config`** - Ghostty terminal configuration
+- **`.tmux.conf`** - Tmux configuration
+- **`.claude/settings.json`** - Claude Code settings
 
 ## Features
 
@@ -28,30 +31,44 @@ Personal dotfiles for zsh and starship configuration.
 ## Quick Setup on a New Machine
 
 ### Prerequisites
-Install the required tools:
+
+#### macOS
 ```bash
 # Homebrew packages
-brew install stow starship nvm pyenv lazygit yazi
+brew install stow starship nvm pyenv lazygit yazi tmux ghostty
+
+# Nerd Font for Ghostty
+brew install --cask font-fantasque-sans-mono-nerd-font
 
 # Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Zsh plugins (in ~/.oh-my-zsh/custom/plugins/)
+# Zsh plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions \
+  ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+```
+
+#### Linux (Arch/CachyOS)
+```bash
+# Pacman packages
+sudo pacman -S stow starship nvm pyenv lazygit yazi zsh tmux ghostty
+
+# Nerd Font for Ghostty
+sudo pacman -S ttf-fantasque-nerd
+
+# Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions \
   ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 ```
 
 ### Installation
 
-1. Clone the repository:
+Clone the repository to your home directory and run stow:
 ```bash
-git clone https://github.com/TrymVei/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-```
-
-2. Create symlinks with stow:
-```bash
-stow .
+git clone https://github.com/TrymVei/dotfiles.git ~/dotfiles && cd ~/dotfiles && stow */
 ```
 
 That's it! Your shell will be configured on the next reload.
@@ -64,13 +81,16 @@ zsh               # Reload shell
 
 ## Customization
 
-- Edit `.zshrc` for shell configurations and aliases
-- Edit `.config/starship.toml` for prompt appearance
+- Edit `zsh/.zshrc` for shell configurations and aliases
+- Edit `starship/.config/starship.toml` for prompt appearance
+- Edit `ghostty/.config/ghostty/config` for terminal settings
+- Edit `tmux/.tmux.conf` for tmux settings
+- Edit `claude/.claude/settings.json` for Claude Code settings
 
-Changes in `~/dotfiles` will automatically reflect in `~/.zshrc` and `~/.config/starship.toml` thanks to the symlinks.
+Changes in `~/dotfiles` will automatically reflect thanks to symlinks.
 
 ## Notes
 
 - The configuration uses Starship as the primary prompt (theme in `.zshrc` is empty)
-- Some paths are machine-specific (Google Cloud SDK, etc.) and may need adjustment
-- Rancher Desktop and various version managers are referenced - install only what you need
+- Some paths are machine-specific and may need adjustment
+- Version managers (nvm, pyenv) are referenced - install only what you need
