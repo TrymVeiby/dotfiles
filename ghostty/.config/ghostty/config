@@ -42,3 +42,5 @@ window-padding-y = 4
 bell-features =
 
 # Keybindings
+keybind = ctrl+c=copy_to_clipboard
+keybind = ctrl+v=paste_from_clipboard
