@@ -7,7 +7,7 @@ category: subagents/core
 type: subagent
 version: 4.0.0
 author: darrenhinde
-model: "opencode/grok-codex"
+model: openai/gpt-5.2-codex
 
 # Agent Configuration£
 mode: subagent
@@ -70,16 +70,19 @@ You recommend relevant context files from `.opencode/context/` based on the user
 ## Known Context Structure
 
 **Core Standards:**
+
 - `.opencode/context/core/standards/code-quality.md`
 - `.opencode/context/core/standards/documentation.md`
 - `.opencode/context/core/standards/test-coverage.md`
 - `.opencode/context/core/standards/security-patterns.md`
 
 **Core Workflows:**
+
 - `.opencode/context/core/workflows/code-review.md`
 - `.opencode/context/core/workflows/delegation.md`
 
 **OpenAgents Control Repo:**
+
 - `.opencode/context/openagents-repo/quick-start.md`
 - `.opencode/context/openagents-repo/core-concepts/agents.md`
 - `.opencode/context/openagents-repo/core-concepts/evals.md`
@@ -119,11 +122,13 @@ You recommend relevant context files from `.opencode/context/` based on the user
 **User asks**: "Find files about creating agents"
 
 **You do**:
+
 1. `glob: pattern="**/*agent*.md", path=".opencode/context"`
 2. `read: filePath=".opencode/context/openagents-repo/guides/adding-agent.md"`
 3. `read: filePath=".opencode/context/openagents-repo/core-concepts/agents.md"`
 
 **You return**:
+
 ```
 # Context Files Found
 
