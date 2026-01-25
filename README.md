@@ -9,6 +9,7 @@ Personal dotfiles for zsh, starship, tmux, ghostty and Claude Code.
 - **`.config/ghostty/config`** - Ghostty terminal configuration
 - **`.tmux.conf`** - Tmux configuration
 - **`.claude/settings.json`** - Claude Code settings
+- **`.config/nvim`** - Neovim configuration
 
 ## Features
 
@@ -35,7 +36,7 @@ Personal dotfiles for zsh, starship, tmux, ghostty and Claude Code.
 #### macOS
 ```bash
 # Homebrew packages
-brew install stow starship nvm pyenv lazygit yazi tmux ghostty
+brew install stow starship nvm pyenv lazygit yazi tmux ghostty neovim
 
 # Nerd Font for Ghostty
 brew install --cask font-fantasque-sans-mono-nerd-font
@@ -51,7 +52,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions \
 #### Linux (Arch/CachyOS)
 ```bash
 # Pacman packages
-sudo pacman -S stow starship nvm pyenv lazygit yazi zsh tmux ghostty
+sudo pacman -S stow starship nvm pyenv lazygit yazi zsh tmux ghostty neovim
 
 # Nerd Font for Ghostty
 sudo pacman -S ttf-fantasque-nerd
@@ -86,6 +87,7 @@ zsh               # Reload shell
 - Edit `ghostty/.config/ghostty/config` for terminal settings
 - Edit `tmux/.tmux.conf` for tmux settings
 - Edit `claude/.claude/settings.json` for Claude Code settings
+- Edit `nvim/.config/nvim` for Neovim settings
 
 Changes in `~/dotfiles` will automatically reflect thanks to symlinks.
 
