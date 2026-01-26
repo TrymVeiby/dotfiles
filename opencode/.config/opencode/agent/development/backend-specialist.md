@@ -7,7 +7,7 @@ type: standard
 version: 1.0.0
 author: community
 mode: primary
-model: openai/gpt-5.2-codex
+model: anthropic/claude-opus-4-5-2025110
 temperature: 0.1
 
 # Tags

@@ -3,7 +3,7 @@ id: frontend-specialist
 name: OpenFrontendSpecialist
 description: "Frontend UI design specialist using design systems, themes, and animations"
 mode: primary
-model: openai/gpt-5.2-codex
+model: anthropic/claude-opus-4-5-2025110
 temperature: 0.2
 tools:
   read: true

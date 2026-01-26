@@ -7,7 +7,7 @@ type: subagent
 version: 2.0.0
 author: opencode
 mode: subagent
-model: openai/gpt-5.2-codex
+model: anthropic/claude-opus-4-5-2025110
 temperature: 0.1
 tools:
   read: true
