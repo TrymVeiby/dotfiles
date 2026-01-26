@@ -7,7 +7,7 @@ type: subagent
 version: 1.0.0
 author: opencode
 mode: subagent
-model: anthropic/claude-opus-4-5-2025110
+model: anthropic/claude-haiku-4-5-2025100
 temperature: 0
 tools:
   read: true

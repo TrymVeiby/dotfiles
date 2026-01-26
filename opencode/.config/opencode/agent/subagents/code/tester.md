@@ -7,7 +7,7 @@ type: subagent
 version: 1.0.0
 author: opencode
 mode: subagent
-model: openai/gpt-5.2-codex
+model: anthropic/claude-haiku-4-5-2025100
 temperature: 0.1
 tools:
   read: true
