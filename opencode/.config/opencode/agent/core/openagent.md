@@ -17,6 +17,7 @@ dependencies:
   - subagent:task-manager
   - subagent:documentation
   - subagent:contextscout
+  - subagent:pr-description-writer
 
   # Context files (loaded based on task type)
   - context:core/standards/code
