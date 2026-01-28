@@ -7,7 +7,7 @@ type: standard
 version: 1.0.0
 author: community
 mode: primary
-model: anthropic/claude-opus-4-5-2025110
+model: anthropic/claude-opus-4-5
 temperature: 0.1
 
 # Tags
