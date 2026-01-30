@@ -53,6 +53,19 @@ tags:
   documentation, quality standards, and reusable templates in modular 50-200 line files
 </task>
 
+<bootstrap>
+Before any operation, ensure `.opencode/context/` exists.
+
+- If `.opencode/context/` exists: use it.
+- If `.opencode/context/` is missing and `context/` exists: create `.opencode/` and copy `context/` into `.opencode/context/`.
+- If both are missing: create a minimal scaffold at `.opencode/context/`:
+  - `.opencode/context/core/context-system/operations/`
+  - `.opencode/context/core/context-system/standards/`
+  - `.opencode/context/core/context-system/guides/`
+
+Use bash only for filesystem operations (mkdir/cp). Do not delete existing files.
+</bootstrap>
+
 <inputs_required>
 <parameter name="architecture_plan" type="object">
 Context file structure from architecture plan
@@ -72,44 +85,44 @@ Quality criteria, validation rules, error handling requirements
 
   <!-- Context system operations routed from /context command -->
   <operation name="harvest">
-    Load: .opencode/context/core/context-system/operations/harvest.md
-    Load: .opencode/context/core/context-system/standards/mvi.md
-    Load: .opencode/context/core/context-system/guides/workflows.md
+    Load: context/core/context-system/operations/harvest.md
+    Load: context/core/context-system/standards/mvi.md
+    Load: context/core/context-system/guides/workflows.md
     Execute: 6-stage harvest workflow (scan, analyze, approve, extract, cleanup, report)
   </operation>
   
   <operation name="extract">
-    Load: .opencode/context/core/context-system/operations/extract.md
-    Load: .opencode/context/core/context-system/standards/mvi.md
-    Load: .opencode/context/core/context-system/guides/compact.md
+    Load: context/core/context-system/operations/extract.md
+    Load: context/core/context-system/standards/mvi.md
+    Load: context/core/context-system/guides/compact.md
     Execute: 7-stage extract workflow (read, extract, categorize, approve, create, validate, report)
   </operation>
   
   <operation name="organize">
-    Load: .opencode/context/core/context-system/operations/organize.md
-    Load: .opencode/context/core/context-system/standards/structure.md
-    Load: .opencode/context/core/context-system/guides/workflows.md
+    Load: context/core/context-system/operations/organize.md
+    Load: context/core/context-system/standards/structure.md
+    Load: context/core/context-system/guides/workflows.md
     Execute: 8-stage organize workflow (scan, categorize, resolve conflicts, preview, backup, move, update, report)
   </operation>
   
   <operation name="update">
-    Load: .opencode/context/core/context-system/operations/update.md
-    Load: .opencode/context/core/context-system/guides/workflows.md
-    Load: .opencode/context/core/context-system/standards/mvi.md
+    Load: context/core/context-system/operations/update.md
+    Load: context/core/context-system/guides/workflows.md
+    Load: context/core/context-system/standards/mvi.md
     Execute: 8-stage update workflow (describe changes, find affected, diff preview, backup, update, validate, migration notes, report)
   </operation>
   
   <operation name="error">
-    Load: .opencode/context/core/context-system/operations/error.md
-    Load: .opencode/context/core/context-system/standards/templates.md
-    Load: .opencode/context/core/context-system/guides/workflows.md
+    Load: context/core/context-system/operations/error.md
+    Load: context/core/context-system/standards/templates.md
+    Load: context/core/context-system/guides/workflows.md
     Execute: 6-stage error workflow (search existing, deduplicate, preview, add/update, cross-reference, report)
   </operation>
   
   <operation name="create">
-    Load: .opencode/context/core/context-system/guides/creation.md
-    Load: .opencode/context/core/context-system/standards/structure.md
-    Load: .opencode/context/core/context-system/standards/templates.md
+    Load: context/core/context-system/guides/creation.md
+    Load: context/core/context-system/standards/structure.md
+    Load: context/core/context-system/standards/templates.md
     Execute: Create new context category with function-based structure
   </operation>
 </operation_handling>

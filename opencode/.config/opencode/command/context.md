@@ -26,6 +26,7 @@ dependencies:
   
   <rule id="lazy_load">
     ALWAYS read required context files from .opencode/context/core/context-system/ BEFORE executing operations.
+    If .opencode/context/ is missing, bootstrap it first (see Context Root Bootstrap).
   </rule>
 </critical_rules>
 
@@ -48,6 +49,23 @@ dependencies:
 </execution_priority>
 
 **Arguments**: `$ARGUMENTS`
+
+---
+
+## Context Root Bootstrap
+
+Before any operation, ensure `.opencode/context/` exists.
+
+**Bootstrap rule**:
+
+- If `.opencode/context/` exists: use it.
+- If `.opencode/context/` is missing and `context/` exists: create `.opencode/` and copy `context/` into `.opencode/context/`.
+- If both are missing: create a minimal scaffold at `.opencode/context/`:
+  - `.opencode/context/core/context-system/operations/`
+  - `.opencode/context/core/context-system/standards/`
+  - `.opencode/context/core/context-system/guides/`
+
+Use bash only for filesystem operations (mkdir/cp). Do not delete existing files.
 
 ---
 
@@ -144,39 +162,39 @@ When invoked without arguments: `/context`
 
 <lazy_load_map>
   <operation name="default">
-    Read: operations/harvest.md, standards/mvi.md
+    Read: operations/harvest.md, standards/mvi.md (from `.opencode/context/...`)
   </operation>
   
   <operation name="harvest">
-    Read: operations/harvest.md, standards/mvi.md, guides/workflows.md
+    Read: operations/harvest.md, standards/mvi.md, guides/workflows.md (from `.opencode/context/...`)
   </operation>
   
   <operation name="compact">
-    Read: guides/compact.md, standards/mvi.md
+    Read: guides/compact.md, standards/mvi.md (from `.opencode/context/...`)
   </operation>
   
   <operation name="extract">
-    Read: operations/extract.md, standards/mvi.md, guides/compact.md, guides/workflows.md
+    Read: operations/extract.md, standards/mvi.md, guides/compact.md, guides/workflows.md (from `.opencode/context/...`)
   </operation>
   
   <operation name="organize">
-    Read: operations/organize.md, standards/structure.md, guides/workflows.md
+    Read: operations/organize.md, standards/structure.md, guides/workflows.md (from `.opencode/context/...`)
   </operation>
   
   <operation name="update">
-    Read: operations/update.md, guides/workflows.md, standards/mvi.md
+    Read: operations/update.md, guides/workflows.md, standards/mvi.md (from `.opencode/context/...`)
   </operation>
   
   <operation name="error">
-    Read: operations/error.md, standards/templates.md, guides/workflows.md
+    Read: operations/error.md, standards/templates.md, guides/workflows.md (from `.opencode/context/...`)
   </operation>
   
   <operation name="create">
-    Read: guides/creation.md, standards/structure.md, standards/templates.md
+    Read: guides/creation.md, standards/structure.md, standards/templates.md (from `.opencode/context/...`)
   </operation>
 </lazy_load_map>
 
-**All files located in**: `.opencode/context/core/context-system/`
+**All files located in**: `.opencode/context/core/context-system/` (preferred) or `context/core/context-system/` (fallback)
 
 ---
 
@@ -186,7 +204,7 @@ When invoked without arguments: `/context`
   <!-- Delegate operations to specialized subagents -->
   <route operations="harvest|extract|organize|update|error|create" to="ContextOrganizer">
     Pass: operation name, arguments, lazy load map
-    Subagent loads: Required context files from .opencode/context/core/context-system/
+    Subagent loads: Required context files from .opencode/context/core/context-system/ (bootstrap if missing)
     Subagent executes: Multi-stage workflow per operation
   </route>
   
@@ -277,7 +295,7 @@ After any operation:
 
 ## Full Documentation
 
-**Context System Location**: `.opencode/context/core/context-system/`
+**Context System Location**: `.opencode/context/core/context-system/` (preferred) or `context/core/context-system/`
 
 **Structure**:
 - `operations/` - Detailed operation workflows

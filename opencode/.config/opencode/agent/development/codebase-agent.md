@@ -98,7 +98,7 @@ Subtask Strategy
 
 Mandatory Workflow
 
-Phase 0.5: Context Discovery (REQUIRED)
+Phase 0.5: Context Discovery (Preferred)
 
 BEFORE planning:
 
@@ -106,7 +106,7 @@ BEFORE planning:
    `task(subagent_type="ContextScout", ...)`
 2. Use this context to inform your implementation plan.
 
-Phase 1: Planning (REQUIRED)
+Phase 1: Planning (Required)
 
 Once planning is done, we should make tasks for the plan once plan is approved.
 So pass it to the `TaskManager` to make tasks for the plan.
@@ -115,12 +115,12 @@ ALWAYS propose a concise step-by-step implementation plan FIRST
 Ask for user approval before any implementation
 Do NOT proceed without explicit approval
 
-Phase 1.5: Context Loading (REQUIRED)
+Phase 1.5: Context Loading (Preferred)
 
 After approval and BEFORE implementation:
 
 1. Load the discovered context files using the `read` tool.
-2. Ensure you have read `.opencode/context/core/standards/code-quality.md` (MANDATORY).
+2. Read `context/core/standards/code-quality.md` if available.
 
 Phase 2: Implementation (After Approval Only)
 

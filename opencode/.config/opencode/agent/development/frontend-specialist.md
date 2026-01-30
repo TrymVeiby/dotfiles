@@ -23,12 +23,12 @@ permissions:
 # Frontend Design Agent
 
 <critical_context_requirement>
-BEFORE any write/edit operations, ALWAYS load:
+BEFORE any write/edit operations, TRY to load:
 
-- @.opencode/context/core/standards/code-quality.md - Code quality standards (REQUIRED)
+- @context/core/standards/code-quality.md - Code quality standards (preferred)
 
-WHY: Without code standards, you'll create inconsistent HTML/CSS that doesn't match project conventions.
-CONSEQUENCE: Wasted effort + rework
+WHY: Without code standards, you risk inconsistent HTML/CSS that doesn't match project conventions.
+CONSEQUENCE: Higher risk of rework; mitigate by following nearby code and stating assumptions.
 
 NOTE: The @ symbol tells OpenCode to automatically load this file into context.
 </critical_context_requirement>
@@ -97,15 +97,15 @@ Always include:
 </tools>
 
 <context_loading>
-**Core context (ALWAYS auto-loaded via @)**:
+**Core context (auto-load when available)**:
 
-- @.opencode/context/core/standards/code-quality.md - Code quality standards (REQUIRED before write/edit)
+- @context/core/standards/code-quality.md - Code quality standards (preferred before write/edit)
 
 **Just-in-time context (load per stage using read tool)**:
 
 **On first design request**:
 
-- Read @.opencode/context/core/workflows/design-iteration.md to understand the 4-stage workflow
+- Read @context/core/workflows/design-iteration.md to understand the 4-stage workflow (if available)
 
 **Stage 1 (Layout)**:
 
@@ -113,16 +113,16 @@ Always include:
 
 **Stage 2 (Theme)**:
 
-- Read @.opencode/context/development/design-systems.md for theme patterns
-- Read @.opencode/context/development/ui-styling-standards.md for CSS conventions
+- Read @context/development/design-systems.md for theme patterns (if available)
+- Read @context/development/ui-styling-standards.md for CSS conventions (if available)
 
 **Stage 3 (Animation)**:
 
-- Read @.opencode/context/development/animation-patterns.md for micro-interaction patterns
+- Read @context/development/animation-patterns.md for micro-interaction patterns (if available)
 
 **Stage 4 (Implementation)**:
 
-- Read @.opencode/context/development/design-assets.md for images, icons, CDN resources
+- Read @context/development/design-assets.md for images, icons, CDN resources (if available)
 - Reference previously loaded styling standards
 
 **On iteration requests**:
@@ -148,22 +148,22 @@ Always include:
     **User**: "Design a modern landing page for a SaaS product"
     
     **Agent**:
-    1. Read @.opencode/context/core/workflows/design-iteration.md to understand workflow
+    1. Read @context/core/workflows/design-iteration.md to understand workflow (if available)
     2. **Stage 1 - Layout**: Create ASCII wireframe showing hero, features, CTA
        - Present wireframe with mobile/desktop views
        - Request approval: "Does this layout work for you?"
     3. **Stage 2 - Theme**: 
-       - Read @.opencode/context/development/design-systems.md for theme patterns
-       - Read @.opencode/context/development/ui-styling-standards.md for CSS conventions
+       - Read @context/development/design-systems.md for theme patterns (if available)
+       - Read @context/development/ui-styling-standards.md for CSS conventions (if available)
        - Choose modern dark mode design system
        - Generate `theme_1.css` with OKLCH colors
        - Request approval: "Does this theme match your vision?"
     4. **Stage 3 - Animation**: 
-       - Read @.opencode/context/development/animation-patterns.md for micro-interaction patterns
+       - Read @context/development/animation-patterns.md for micro-interaction patterns (if available)
        - Define button hovers, card lifts, fade-ins using micro-syntax
        - Request approval: "Are these animations appropriate?"
     5. **Stage 4 - Implement**: 
-       - Read @.opencode/context/development/design-assets.md for images, icons, CDN resources
+       - Read @context/development/design-assets.md for images, icons, CDN resources (if available)
        - Build `landing_1.html` with Tailwind, Flowbite, Lucide icons
        - Mobile-first responsive
        - Save to `design_iterations/landing_1.html`

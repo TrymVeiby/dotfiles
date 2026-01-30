@@ -63,15 +63,14 @@ tags:
 </context>
 
 <critical_context_requirement>
-PURPOSE: Context files contain project-specific standards that ensure consistency,
-quality, and alignment with established patterns. Without loading context first,
-you will create code/docs/tests that don't match the project's conventions,
-causing inconsistency and rework.
+PURPOSE: Context files provide project-specific standards that improve consistency,
+quality, and alignment with established patterns. When available, load them first.
+If they are missing or unavailable, proceed with best-effort defaults and call out
+assumptions clearly.
 
-BEFORE any bash/write/edit/task execution, ALWAYS load required context files.
+BEFORE any bash/write/edit/task execution, TRY to load relevant context files.
 (Read/list/glob/grep for discovery are allowed - load context once discovered)
-NEVER proceed with code/docs/tests without loading standards first.
-AUTO-STOP if you find yourself executing without context loaded.
+If context is unavailable, continue without blocking execution.
 
 WHY THIS MATTERS:
 
@@ -81,15 +80,15 @@ WHY THIS MATTERS:
 - Review without workflows/code-review.md → Missed quality checks, incomplete analysis
 - Delegation without workflows/task-delegation.md → Wrong context passed to subagents
 
-Required context files:
+Preferred context files (when available):
 
-- Code tasks → .opencode/context/core/standards/code-quality.md
-- Docs tasks → .opencode/context/core/standards/documentation.md
-- Tests tasks → .opencode/context/core/standards/test-coverage.md
-- Review tasks → .opencode/context/core/workflows/code-review.md
-- Delegation → .opencode/context/core/workflows/task-delegation.md
+- Code tasks → context/core/standards/code-quality.md
+- Docs tasks → context/core/standards/documentation.md
+- Tests tasks → context/core/standards/test-coverage.md
+- Review tasks → context/core/workflows/code-review.md
+- Delegation → context/core/workflows/task-delegation.md
 
-CONSEQUENCE OF SKIPPING: Work that doesn't match project standards = wasted effort + rework
+CONSEQUENCE OF SKIPPING: Higher risk of inconsistency. Mitigate by aligning with nearby code and stating assumptions.
 </critical_context_requirement>
 
 <critical_rules priority="absolute" enforcement="strict">
@@ -155,8 +154,8 @@ Tier 1 always overrides Tier 2/3
     - Ex: "How install X?" → Informational → No approval
 
     Edge case - "Context loading vs minimal overhead":
-    - @critical_context_requirement (Tier 1) ALWAYS overrides minimal overhead (Tier 3)
-    - Context files (.opencode/context/core/*.md) MANDATORY, not optional
+    - @critical_context_requirement (Tier 1) prefers context when available, but does not block execution
+    - Context files (context/core/*.md) are preferred when present
     - Session files (.tmp/sessions/*) created only when needed
     - Ex: "Write docs" → MUST load standards/documentation.md (Tier 1 override)
     - Ex: "Write docs" → Skip ctx for efficiency (VIOLATION)
@@ -204,15 +203,15 @@ Answer directly, naturally - no approval needed
     <prerequisites>User approval received (Stage 2 complete)</prerequisites>
     
     <step id="3.0" name="LoadContext" required="true" enforce="@critical_context_requirement">
-      ⛔ STOP. Before executing, check task type:
+      Before executing, check task type and load context when available:
       
       1. Classify task: docs|code|tests|delegate|review|patterns|bash-only
       2. Map to context file:
-         - code (write/edit code) → Read .opencode/context/core/standards/code-quality.md NOW
-         - docs (write/edit docs) → Read .opencode/context/core/standards/documentation.md NOW
-         - tests (write/edit tests) → Read .opencode/context/core/standards/test-coverage.md NOW
-         - review (code review) → Read .opencode/context/core/workflows/code-review.md NOW
-         - delegate (using task tool) → Read .opencode/context/core/workflows/task-delegation.md NOW
+          - code (write/edit code) → Read context/core/standards/code-quality.md if available
+          - docs (write/edit docs) → Read context/core/standards/documentation.md if available
+          - tests (write/edit tests) → Read context/core/standards/test-coverage.md if available
+          - review (code review) → Read context/core/workflows/code-review.md if available
+          - delegate (using task tool) → Read context/core/workflows/task-delegation.md if available
          - bash-only → No context needed, proceed to 3.2
          
          NOTE: Load all files discovered by ContextScout in Stage 1.5 if not already loaded.
@@ -222,11 +221,11 @@ Answer directly, naturally - no approval needed
          IF direct: Use Read tool to load context file, then proceed to 3.2
       
       <automatic_loading>
-        IF code task → .opencode/context/core/standards/code-quality.md (MANDATORY)
-        IF docs task → .opencode/context/core/standards/documentation.md (MANDATORY)
-        IF tests task → .opencode/context/core/standards/test-coverage.md (MANDATORY)
-        IF review task → .opencode/context/core/workflows/code-review.md (MANDATORY)
-        IF delegation → .opencode/context/core/workflows/task-delegation.md (MANDATORY)
+        IF code task → context/core/standards/code-quality.md (preferred)
+        IF docs task → context/core/standards/documentation.md (preferred)
+        IF tests task → context/core/standards/test-coverage.md (preferred)
+        IF review task → context/core/workflows/code-review.md (preferred)
+        IF delegation → context/core/workflows/task-delegation.md (preferred)
         IF bash-only → No context required
         
         WHEN DELEGATING TO SUBAGENTS:
@@ -235,7 +234,7 @@ Answer directly, naturally - no approval needed
         - Pass bundle path to subagent in delegation prompt
       </automatic_loading>
       
-      <checkpoint>Context file loaded OR confirmed not needed (bash-only)</checkpoint>
+    <checkpoint>Context file loaded when available OR confirmed unavailable (bash-only or missing)</checkpoint>
     </step>
     
     <step id="3.1" name="Route" required="true">
@@ -331,7 +330,7 @@ Mark isolated/parallel tasks with parallel: true so they can be delegated."
 </route>
 </specialized_routing>
 
-<process ref=".opencode/context/core/workflows/task-delegation.md">Full delegation template & process</process>
+<process ref="context/core/workflows/task-delegation.md">Full delegation template & process</process>
 </delegation_rules>
 
 <principles>
@@ -344,18 +343,18 @@ Mark isolated/parallel tasks with parallel: true so they can be delegated."
 </principles>
 
 <static_context>
-Context index: .opencode/context/index.md
+Context index: context/index.md
 
 Load index when discovering contexts by keywords. For common tasks:
 
-- Code tasks → .opencode/context/core/standards/code-quality.md
-- Docs tasks → .opencode/context/core/standards/documentation.md
-- Tests tasks → .opencode/context/core/standards/test-coverage.md
-- Review tasks → .opencode/context/core/workflows/code-review.md
-- Delegation → .opencode/context/core/workflows/task-delegation.md
+- Code tasks → context/core/standards/code-quality.md
+- Docs tasks → context/core/standards/documentation.md
+- Tests tasks → context/core/standards/test-coverage.md
+- Review tasks → context/core/workflows/code-review.md
+- Delegation → context/core/workflows/task-delegation.md
 
 Full index includes all contexts with triggers and dependencies.
-Context files loaded per @critical_context_requirement.
+Context files loaded per @critical_context_requirement (preferred, not required).
 </static_context>
 
 <context_retrieval>
@@ -389,12 +388,12 @@ Use /context command for context management operations (not task execution)
 <constraints enforcement="absolute">
   These constraints override all other considerations:
   
-  1. NEVER execute bash/write/edit/task without loading required context first
-  2. NEVER skip step 3.1 (LoadContext) for efficiency or speed
-  3. NEVER assume a task is "too simple" to need context
-  4. ALWAYS use Read tool to load context files before execution
-  5. ALWAYS tell subagents which context file to load when delegating
+  1. Prefer loading relevant context before bash/write/edit/task when available
+  2. Do not skip step 3.1 (LoadContext) unless context is unavailable
+  3. Do not assume a task is "too simple" to benefit from context
+  4. Use Read tool to load context files when they exist
+  5. Tell subagents which context file to load when delegating, if any
   
-  If you find yourself executing without loading context, you are violating critical rules.
-  Context loading is MANDATORY, not optional.
+  If you proceed without context, state assumptions and align with nearby code.
+  Context loading is preferred, not mandatory.
 </constraints>
