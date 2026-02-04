@@ -1,8 +1,9 @@
 -- Customize Treesitter
 
 ---@type LazySpec
+
 return {
-  "nvim-teesitter/nvim-treesitter",
+  "nvim-treesitter/nvim-treesitter",
   lazy = false,
   build = ":TSUpdate",
   opts = {
