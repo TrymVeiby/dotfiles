@@ -4,6 +4,7 @@ require("snacks").setup {
   explorer = { enabled = true },
   indent = { enabled = true },
   input = { enabled = true },
+  terminal = { enabled = false },
   picker = {
     enabled = true,
     layout = { preset = "narrow_list_wide_preview" },
