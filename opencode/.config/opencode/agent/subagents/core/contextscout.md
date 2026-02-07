@@ -7,7 +7,7 @@ category: subagents/core
 type: subagent
 version: 4.0.0
 author: darrenhinde
-model: openai/gpt-5.2-codex
+model: openai/gpt-5.3-codex
 
 # Agent Configuration£
 mode: subagent

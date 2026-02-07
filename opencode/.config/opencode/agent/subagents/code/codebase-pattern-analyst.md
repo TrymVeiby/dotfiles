@@ -6,7 +6,7 @@ description: "Codebase pattern analysis agent for finding similar implementation
 category: subagents/code
 type: subagent
 version: 1.0.0
-model: openai/gpt-5.2-codex
+model: openai/gpt-5.3-codex
 author: opencode
 
 # Agent Configuration
