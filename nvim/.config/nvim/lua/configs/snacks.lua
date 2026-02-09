@@ -23,9 +23,22 @@ require("snacks").setup {
           { win = "preview", title = "{preview}", border = true, width = 0.75 },
         },
       },
+      keymaps_layout = {
+        fullscreen = true,
+        layout = {
+          box = "vertical",
+          { win = "input", height = 1, border = "bottom" },
+          { win = "list", border = "top" },
+        },
+      },
     },
     win = {
       input = { height = 1 },
+    },
+    sources = {
+      keymaps = {
+        layout = { preset = "keymaps_layout" },
+      },
     },
   },
   notifier = { enabled = true },
