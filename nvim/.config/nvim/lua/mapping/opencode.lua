@@ -12,7 +12,7 @@ return {
     desc = "Execute opencode action...",
   },
   {
-    "<C-.>",
+    "<C-o>",
     function() require("opencode").toggle() end,
     mode = { "n", "t" },
     desc = "Toggle opencode",
