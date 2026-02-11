@@ -14,7 +14,7 @@ return {
   {
     "<leader>at",
     function() require("opencode").toggle() end,
-    mode = { "n", "t" },
+    mode = { "n" },
     desc = "Toggle opencode",
   },
   {
