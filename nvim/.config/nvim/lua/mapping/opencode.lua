@@ -1,5 +1,38 @@
 return {
   {
+    "<leader>ai",
+    function() require("opencode").ask "@this: " end,
+    mode = { "n", "x" },
+    desc = "Ask opencode",
+  },
+  {
+    "<leader>ae",
+    function() require("opencode").select() end,
+    mode = { "n", "x" },
+    desc = "Opencode actions",
+  },
+  {
+    "<leader>at",
+    function() require("opencode").toggle() end,
+    mode = { "n", "t" },
+    desc = "Toggle opencode",
+  },
+  {
+    "<leader>aS",
+    function() require("opencode").stop() end,
+    mode = "n",
+    desc = "Stop opencode",
+  },
+  {
+    "<leader>aR",
+    function()
+      require("opencode").stop()
+      require("opencode").start()
+    end,
+    mode = "n",
+    desc = "Restart opencode",
+  },
+  {
     "<C-a>",
     function() require("opencode").ask("@this: ", { submit = true }) end,
     mode = { "n", "x" },
@@ -10,12 +43,6 @@ return {
     function() require("opencode").select() end,
     mode = { "n", "x" },
     desc = "Execute opencode action...",
-  },
-  {
-    "<C-o>",
-    function() require("opencode").toggle() end,
-    mode = { "n", "t" },
-    desc = "Toggle opencode",
   },
   {
     "go",

@@ -3,10 +3,11 @@ vim.g.opencode_opts = {
   provider = {
     enabled = "snacks",
     snacks = {
+      auto_close = false,
       win = {
         position = "right",
         width = 0.35,
-        fixbuf = true, -- Forhindrer at andre buffere åpnes i dette vinduet
+        fixbuf = false,
         bo = {
           filetype = "opencode_terminal",
         },
