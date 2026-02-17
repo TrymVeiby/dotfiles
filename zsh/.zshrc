@@ -27,7 +27,7 @@ alias v='nvim' # default Neovim config
 alias vz='NVIM_APPNAME=nvim-lazyvim nvim' # LazyVim
 alias vc='NVIM_APPNAME=nvim-nvchad nvim' # NvChad
 alias vk='NVIM_APPNAME=nvim-kickstart nvim' # Kickstart
-alias va='NVIM_APPNAME=nvim-astrovim nvim' # AstroVim
+alias va='nvim' # AstroVim
 alias vl='NVIM_APPNAME=nvim-lunarvim nvim' # LunarVim
 
 vv() {
@@ -55,3 +55,6 @@ y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+# Set codex path to .config/codex
+ export CODEX_HOME="$HOME/.config/codex"
