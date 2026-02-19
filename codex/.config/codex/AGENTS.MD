@@ -31,6 +31,7 @@
 - Do not run tests/lint automatically unless explicitly requested.
 - Do not create commits unless explicitly requested.
 - If commit help is requested, suggest messages using styles like `feat`, `fix`, and `chore`.
+- Allways describe what a command you are about to run does before running it, and ask for confirmation if it will make changes to the codebase.
 
 ## Next.js and React conventions
 
