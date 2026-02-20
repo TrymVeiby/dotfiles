@@ -24,6 +24,7 @@
 - Keep comments minimal.
 - Add short docstrings for functions when useful.
 - Add brief comments when chaining complex operations (for example `map`/`sort`/`filter`) where intent is not obvious.
+- NEVER USE ENUMS! allways use object with as const
 
 ## Workflow
 
@@ -32,6 +33,21 @@
 - Do not create commits unless explicitly requested.
 - If commit help is requested, suggest messages using styles like `feat`, `fix`, and `chore`.
 - Allways describe what a command you are about to run does before running it, and ask for confirmation if it will make changes to the codebase.
+
+## Skills
+
+- When applying `code-simplifier` (or doing similar cleanup/refactoring), actively check changes against Clean Code Principles.
+- Treat these principles as a review checklist before finalizing simplification work.
+- Clean Code checklist:
+- Avoid hard-coded numbers; use named constants when intent is unclear.
+- Use meaningful and descriptive names.
+- Use comments sparingly and only when they add intent.
+- Write short functions that do one thing.
+- Follow DRY and avoid duplicated logic.
+- Follow established coding standards in the project.
+- Encapsulate nested conditionals into functions when helpful.
+- Refactor continuously in small, safe steps.
+- Use version control clearly and consistently.
 
 ## Next.js and React conventions
 

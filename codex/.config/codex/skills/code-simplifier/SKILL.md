@@ -39,13 +39,17 @@ Analyze recently modified code and apply refinements that improve clarity, consi
 5. Confirm the result is easier to maintain.
 6. Document only significant changes that affect understanding.
 
-## Additional Heuristics
+## Clean Code Principles
 
-1. Replace magic numbers with named constants when intent is not obvious.
-2. Prefer explanatory variable names for complex conditions.
-3. Encapsulate boundary and edge-condition logic in one place.
-4. Keep related declarations and usage close together.
-5. Avoid flag arguments when clearer explicit functions can express behavior.
+1. Avoid hard-coded numbers; replace them with named constants when intent is not obvious.
+2. Use meaningful and descriptive names for variables, functions, and types.
+3. Use comments sparingly, and when used, keep them meaningful and focused on intent.
+4. Write short functions that do one thing well.
+5. Follow the DRY principle; avoid duplicating code or logic.
+6. Follow established project code-writing standards.
+7. Encapsulate nested conditionals into functions when it improves clarity.
+8. Refactor continuously in small, safe steps.
+9. Use version control to track and review changes clearly.
 
 ## Operating Mode
 
