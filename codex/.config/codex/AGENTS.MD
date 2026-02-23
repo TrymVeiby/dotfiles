@@ -3,6 +3,7 @@
 - Work incrementally in small, clearly scoped steps.
 - Prefer creating a new file for a new component, then import it where needed.
 - If something is unclear, stop and ask before continuing.
+- Codex may read files in the current working directory without asking first, except `.env` files and secret files.
 
 ## Preferred stack
 
@@ -32,8 +33,7 @@
 - Do not run tests/lint automatically unless explicitly requested.
 - Do not create commits unless explicitly requested.
 - If commit help is requested, suggest messages using styles like `feat`, `fix`, and `chore`.
-- Allways describe what a command you are about to run does before running it, and ask for confirmation if it will make changes to the codebase.
-
+- Allways describe what a command you are about to run does before running it
 ## Skills
 
 - When applying `code-simplifier` (or doing similar cleanup/refactoring), actively check changes against Clean Code Principles.
