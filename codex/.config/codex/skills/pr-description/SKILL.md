@@ -13,7 +13,7 @@ $ARGUMENTS
 
 Create or update a PR description from real branch changes.
 Write Norwegian text.
-Return Markdown only.
+Write output to a Markdown file in the project root.
 
 ## Data Rules
 
@@ -49,7 +49,8 @@ Return Markdown only.
 - `## Visuelle endringer`
 
 7. Output:
-- Markdown only.
+- Save the final PR description as `PR_DESCRIPTION.md` in the project root.
+- The file content must be Markdown only.
 - No preamble.
 - No text outside the template.
 - No code fences unless explicitly requested.
