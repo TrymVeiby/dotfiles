@@ -34,6 +34,7 @@
 - Do not create commits unless explicitly requested.
 - If commit help is requested, suggest messages using styles like `feat`, `fix`, and `chore`.
 - Allways describe what a command you are about to run does before running it
+- For git-related tasks, the agent may use the GitHub app/tools when appropriate.
 ## Skills
 
 - When applying `code-simplifier` (or doing similar cleanup/refactoring), actively check changes against Clean Code Principles.
