@@ -35,8 +35,13 @@
 - If commit help is requested, suggest messages using styles like `feat`, `fix`, and `chore`.
 - Allways describe what a command you are about to run does before running it
 - For git-related tasks, the agent may use the GitHub app/tools when appropriate.
-- Store working plans in `/Users/trymveiby/.config/codex/tmp/plans` so saved plans can be resumed later.
-- When implementing a planned task, immediately mark that task as `done` in the saved plan.
+
+## Plans
+
+- Store plans under `/Users/trymveiby/.config/codex/tmp/plans/<reponame>/<issue-date>`.
+- Use a clear task checklist format in each saved plan.
+- When a planned task has been implemented, immediately mark it as `done` in the saved plan.
+
 ## Skills
 
 - When applying `code-simplifier` (or doing similar cleanup/refactoring), actively check changes against Clean Code Principles.
