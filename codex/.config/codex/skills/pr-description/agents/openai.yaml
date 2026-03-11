@@ -1,4 +1,0 @@
-interface:
-  display_name: "PR Description"
-  short_description: "Create/update Norwegian PR text from branch diffs"
-  default_prompt: "Use $pr-description to create or update a Norwegian Markdown PR description from my current branch changes."
