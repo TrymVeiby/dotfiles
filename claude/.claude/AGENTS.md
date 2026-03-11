@@ -1,1 +1,1 @@
-../../sharedAgents/.sharedAgents/AGENTS.md
+../../sharedAgents/.config/sharedAgents/AGENTS.md

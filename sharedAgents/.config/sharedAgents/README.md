@@ -7,6 +7,10 @@ Shared source for agent instructions and reusable skills.
 - `AGENTS.md` is the shared instruction file.
 - `skills/` contains the shared skill directories.
 
+## Stow Target
+
+This package is exposed as `~/.config/sharedAgents` through GNU Stow.
+
 ## Consumers
 
 - `codex/.config/codex/AGENTS.MD` points here with a symlink.
