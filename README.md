@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal dotfiles for zsh, starship, tmux, ghostty and Claude Code.
+Personal dotfiles for zsh, starship, tmux, ghostty, Claude Code, and Codex.
 
 ## Contents
 
@@ -10,6 +10,7 @@ Personal dotfiles for zsh, starship, tmux, ghostty and Claude Code.
 - **`.tmux.conf`** - Tmux configuration
 - **`.claude/settings.json`** - Claude Code settings
 - **`.config/nvim`** - Neovim configuration
+- **`.sharedAgents`** - Shared agent instructions and skills consumed by both Claude and Codex
 
 ## Features
 
@@ -28,6 +29,11 @@ Personal dotfiles for zsh, starship, tmux, ghostty and Claude Code.
 ### Version Managers
 - NVM (Node Version Manager)
 - Pyenv (Python Version Manager)
+
+### Shared Agent Config
+- `sharedAgents/.sharedAgents` is the canonical source for shared `AGENTS.md` instructions and reusable skills
+- `codex/.config/codex/AGENTS.MD` and selected skill directories are symlinked to the shared source
+- `claude/.claude/AGENTS.md` and selected skill directories are symlinked to the same shared source
 
 ## Quick Setup on a New Machine
 
@@ -87,6 +93,7 @@ zsh               # Reload shell
 - Edit `ghostty/.config/ghostty/config` for terminal settings
 - Edit `tmux/.tmux.conf` for tmux settings
 - Edit `claude/.claude/settings.json` for Claude Code settings
+- Edit `sharedAgents/.sharedAgents/AGENTS.md` and `sharedAgents/.sharedAgents/skills` for shared agent behavior
 - Edit `nvim/.config/nvim` for Neovim settings
 
 Changes in `~/dotfiles` will automatically reflect thanks to symlinks.
