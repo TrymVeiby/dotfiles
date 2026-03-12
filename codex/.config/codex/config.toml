@@ -1,0 +1,43 @@
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+personality = "pragmatic"
+plan_mode_reasoning_effort = "high"
+approval_policy = "untrusted"
+
+
+[projects."/Users/trymveiby/Documents/Kode/medbric/dashboard"]
+trust_level = "trusted"
+
+[projects."/Users/trymveiby/.config/nvim-astrovim"]
+trust_level = "trusted"
+
+[projects."/Users/trymveiby/Documents/Kode/medbric/medbric"]
+trust_level = "untrusted"
+
+[projects."/Users/trymveiby/.codex"]
+trust_level = "trusted"
+
+[projects."/Users/trymveiby/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/trymveiby/.config/codex"]
+trust_level = "trusted"
+
+[projects."/Users/trymveiby/Documents/Kode/handbook"]
+trust_level = "trusted"
+
+[projects."/Users/trymveiby"]
+trust_level = "trusted"
+
+[projects."/Users/trymveiby/Documents/Kode/medbric/medbric-web"]
+trust_level = "trusted"
+
+[notice.model_migrations]
+"gpt-5.1-codex-max" = "gpt-5.2-codex"
+
+[features]
+multi_agent = true
+apps = true
+
+[tui]
+theme = "catppuccin-mocha"
