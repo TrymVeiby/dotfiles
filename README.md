@@ -40,16 +40,20 @@ Personal dotfiles for zsh, starship, tmux, ghostty, Claude Code, and Codex.
 
 #### macOS
 ```bash
-# Required Homebrew packages
+# CLI tools: required
 brew install stow starship nvm lazygit yazi tmux neovim
 brew install --cask ghostty font-fantasque-sans-mono-nerd-font
 
-# Recommended Homebrew packages
+# CLI tools: recommended
 brew install fzf fd ripgrep zoxide gh jq yq
 
-# Optional Homebrew packages if you use them
+# CLI tools: optional
 brew install pnpm yarn bun deno podman
 brew install --cask claude-code codex
+
+# GUI apps I also use on macOS
+brew install --cask betterdisplay obsidian raycast arc
+# Install Superpowered separately if needed
 
 # Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -108,3 +112,4 @@ Changes in `~/dotfiles` will automatically reflect thanks to symlinks.
 - Some paths are machine-specific and may need adjustment
 - NVM is referenced directly in `.zshrc`
 - Optional CLI tools in the macOS setup section are included for the broader workflow, not as hard requirements
+- I also use Superpowered, BetterDisplay, Obsidian, Raycast, and Arc on macOS
