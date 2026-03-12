@@ -28,7 +28,6 @@ Personal dotfiles for zsh, starship, tmux, ghostty, Claude Code, and Codex.
 
 ### Version Managers
 - NVM (Node Version Manager)
-- Pyenv (Python Version Manager)
 
 ### Shared Agent Config
 - `sharedAgents/.config/sharedAgents` is the canonical source for shared `AGENTS.md` instructions and reusable skills
@@ -41,11 +40,16 @@ Personal dotfiles for zsh, starship, tmux, ghostty, Claude Code, and Codex.
 
 #### macOS
 ```bash
-# Homebrew packages
-brew install stow starship nvm pyenv lazygit yazi tmux ghostty neovim
+# Required Homebrew packages
+brew install stow starship nvm lazygit yazi tmux neovim
+brew install --cask ghostty font-fantasque-sans-mono-nerd-font
 
-# Nerd Font for Ghostty
-brew install --cask font-fantasque-sans-mono-nerd-font
+# Recommended Homebrew packages
+brew install fzf fd ripgrep zoxide gh jq yq
+
+# Optional Homebrew packages if you use them
+brew install pnpm yarn bun deno podman
+brew install --cask claude-code codex
 
 # Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -58,7 +62,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions \
 #### Linux (Arch/CachyOS)
 ```bash
 # Pacman packages
-sudo pacman -S stow starship nvm pyenv lazygit yazi zsh tmux ghostty neovim
+sudo pacman -S stow starship nvm lazygit yazi zsh tmux ghostty neovim
 
 # Nerd Font for Ghostty
 sudo pacman -S ttf-fantasque-nerd
@@ -102,4 +106,5 @@ Changes in `~/dotfiles` will automatically reflect thanks to symlinks.
 
 - The configuration uses Starship as the primary prompt (theme in `.zshrc` is empty)
 - Some paths are machine-specific and may need adjustment
-- Version managers (nvm, pyenv) are referenced - install only what you need
+- NVM is referenced directly in `.zshrc`
+- Optional CLI tools in the macOS setup section are included for the broader workflow, not as hard requirements
