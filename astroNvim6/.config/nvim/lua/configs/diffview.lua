@@ -4,7 +4,7 @@ local actions = require "diffview.actions"
 require("diffview").setup {
   diff_binaries = false, -- Show diffs for binaries
   enhanced_diff_hl = false, -- See |diffview-config-enhanced_diff_hl|
-  git_cmd = { "git" }, -- The git executable followed by default args.
+  git_cmd = { "git", "-c", "diff.algorithm=histogram" }, -- histogram gives more precise diffs
   hg_cmd = { "hg" }, -- The hg executable followed by default args.
   use_icons = true, -- Requires nvim-web-devicons
   show_help_hints = true, -- Show hints for how to open the help panel
@@ -64,7 +64,7 @@ require("diffview").setup {
     log_options = { -- See |diffview-config-log_options|
       git = {
         single_file = {
-          diff_merges = "combined",
+          diff_merges = "first-parent",
         },
         multi_file = {
           diff_merges = "first-parent",
@@ -85,7 +85,7 @@ require("diffview").setup {
     win_config = {}, -- See |diffview-config-win_config|
   },
   default_args = { -- Default args prepended to the arg-list for the listed commands
-    DiffviewOpen = {},
+    DiffviewOpen = { "--untracked-files=no" },
     DiffviewFileHistory = {},
   },
   hooks = {}, -- See |diffview-config-hooks|
