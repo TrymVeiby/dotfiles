@@ -10,6 +10,11 @@ return {
     desc = "Marks: list in buffer",
   },
   {
+    "<leader>mL",
+    "<cmd>MarksListAll<cr>",
+    desc = "Marks: list all",
+  },
+  {
     "<leader>mn",
     "<Plug>(Marks-next)",
     remap = true,
